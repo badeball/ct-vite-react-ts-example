@@ -1,0 +1,26 @@
+name: Test
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:latest
+    steps:
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Change owner
+        run: "chown root: ."
+      - name: Dependencies
+        run: npm install --engine-strict
+      - name: Test
+        run: npx cypress run --component
+      - name: Versions
+        run: |
+          npx cypress --version
+          node --version
+          npm --version
