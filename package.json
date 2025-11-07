@@ -1,7 +1,4 @@
 {
-  "scripts": {
-    "postinstall": "patch-package"
-  },
   "dependencies": {
     "@badeball/cypress-cucumber-preprocessor": "latest",
     "@cypress/vite-dev-server": "latest",
